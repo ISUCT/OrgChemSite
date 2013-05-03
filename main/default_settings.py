@@ -1,5 +1,5 @@
 # -*- coding=utf8 -*-
-# Django settings for ICJ project.
+# Django settings for main project.
 import os
 from django.conf import global_settings
 DEBUG = False
@@ -94,10 +94,10 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'ICJ.urls'
+ROOT_URLCONF = 'main.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'ICJ.wsgi.application'
+WSGI_APPLICATION = 'main.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -121,9 +121,9 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     #'testForms',
-    'accounts',
-    'registration',
-    'conference',
+    #'accounts',
+	#'registration',
+    #'conference',
 )
 
 # A sample logging configuration. The only tangible logging

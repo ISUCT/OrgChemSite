@@ -15,18 +15,18 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
 
     #url(r'^test/', 'testForms.views.contact'),
-    url(r'^accounts/', include('accounts.urls')),
+    #url(r'^accounts/', include('accounts.urls')),
     # Подключаем урлы приложения конференция
-    url(r'^accounts/', include('conference.urls')),
-    url(r'^', include('conference.urls')),
-    url(r'^', include('accounts.urls')),
+    #url(r'^accounts/', include('conference.urls')),
+    #url(r'^', include('conference.urls')),
+    #url(r'^', include('accounts.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^accounts/', include('registration.urls')),
-    url(r'^$', 'ICJ.views.home'),  # Основная страница с информацией
-    url(r'^news/$', 'ICJ.views.news'),  # Новости
-    url(r'^contact/$', 'ICJ.views.contacts'),  # Контакты
-    url(r'^schedule/$', 'ICJ.views.schedule'),
-    url(r'^agreement/$', 'ICJ.views.agreement'),
+    #url(r'^accounts/', include('registration.urls')),
+    url(r'^$', 'main.views.home'),  # Основная страница с информацией
+    #url(r'^news/$', 'main.views.news'),  # Новости
+    #url(r'^contact/$', 'main.views.contacts'),  # Контакты
+    #url(r'^schedule/$', 'main.views.schedule'),
+    #url(r'^agreement/$', 'main.views.agreement'),
     #чтобы правильно отображать статику на сервере
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 )

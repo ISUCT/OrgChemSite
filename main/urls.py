@@ -8,27 +8,21 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
     # Uncomment the next line to enable the admin:
-
-    #url(r'^test/', 'testForms.views.contact'),
-    #url(r'^accounts/', include('accounts.urls')),
     # Подключаем урлы приложения конференция
     #url(r'^accounts/', include('conference.urls')),
     #url(r'^', include('conference.urls')),
     #url(r'^', include('accounts.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    #url(r'^accounts/', include('registration.urls')),
     url(r'^$', 'main.views.home'),  # Основная страница с информацией
-    #url(r'^news/$', 'main.views.news'),  # Новости
-    #url(r'^contact/$', 'main.views.contacts'),  # Контакты
-    #url(r'^schedule/$', 'main.views.schedule'),
-    #url(r'^agreement/$', 'main.views.agreement'),
+    url(r'^about/$', 'main.views.about'),  # Основная страница с информацией
+    url(r'^abiturient/$', 'main.views.abiturient'),  # Основная страница с информацией
+    url(r'^students/$', 'main.views.students'),  # Основная страница с информацией
+    url(r'^tutors/$', 'main.views.tutors'),  # Основная страница с информацией
+    url(r'^news/(?P<news_id>\d+)/', 'news.views.news'),  # Основная страница с информацией
     #чтобы правильно отображать статику на сервере
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )
 if settings.DEBUG:
     from django.conf.urls.static import static

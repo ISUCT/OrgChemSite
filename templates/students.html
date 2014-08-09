@@ -1,0 +1,12 @@
+{% extends "content_template.html" %}
+{% block navigation %}
+	<li><a href="/">Главная</a></li>
+	<li><a href="/about">О факультете</a></li>
+	<li><a href="/abiturient">Поступающим</a></li>
+	<li class="active"><a href="/students">Студентам</a></li>
+	<li><a href="/tutors">Преподавателям</a></li>
+{% endblock %}
+
+{% block main_content %}
+    	{{content|safe}}
+{% endblock %}

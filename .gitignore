@@ -1,6 +1,7 @@
 /testForms
 /ICJ/settings.py
 /UserProfile
+.ropeproject
 static/*
 !static
 *.pyc

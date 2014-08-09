@@ -11,7 +11,7 @@
     <link href="{{ STATIC_URL }}assets/css/bootstrap.css" rel="stylesheet">
     <style>
       body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        padding-top: 20px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
     <link href="{{ STATIC_URL }}assets/css/bootstrap-responsive.css" rel="stylesheet">
@@ -29,33 +29,57 @@
     <link rel="apple-touch-icon-precomposed" href="{{ STATIC_URL }}assets/ico/apple-touch-icon-57-precomposed.png">
   </head>
 
-  <body>
+<body>
 
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <!--<a class="brand" href="/">ICJ</a>-->
+  <div class="container">
 
-          <div class="nav-collapse">
-            <ul class="nav">
-              {% block navigation %}
-              <li class="active"><a href="/">Главная</a></li>
-              <li><a href="/news">О факультете</a></li>
-              <li><a href="/contact">Поступающим</a></li>
-              <li><a href="/schedule">Студентам</a></li>
-              <li><a href="/userlist">Преподавателям</a></li>
-              {% endblock %}
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
+{% block head %}
+  <div class="row-fluid">
+    <div class="span1" style = "display:inline-table;vertical-align:middle;text-align:center">
+      <img src="{{ STATIC_URL }}/img/logo.jpg" width="70" height="70"/>
     </div>
+    <div class="span10" style = "display:inline-table;vertical-align:middle">
+      <h4 style="color:#01662e">ФАКУЛЬТЕТ ОРГАНИЧЕСКОЙ ХИМИИ И ТЕХНОЛОГИИ </h4>
+      <h5>ИВАНОВСКИЙ ГОСУДАРСТВЕННЫЙ ХИМИКО-ТЕХНОЛОГИЧЕСКИЙ УНИВЕРСИТЕТ </h5>
+    </div>
+  </div>
+{% endblock %}
 
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          {% block navigation %}
+          <li class="active"><a href="/">Главная</a></li>
+          <li><a href="/about">О факультете</a></li>
+          <li><a href="/abiturient">Поступающим</a></li>
+          <li><a href="/students">Студентам</a></li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li class="nav-header">Nav header</li>
+            <li><a href="#">Separated link</a></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+          </li>
+          <li><a href="/tutors">Преподавателям</a></li>
+          {% endblock %}
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
 
     {% block carousel %}
     {% endblock %}
@@ -66,6 +90,7 @@
       {% endblock %}
       {%block pager%}
       {% endblock %}
+    </div> <!-- /container -->
     </div> <!-- /container -->
 
     <!-- Le javascript
@@ -85,6 +110,11 @@
     <script src="{{ STATIC_URL }}assets/js/bootstrap-carousel.js"></script>
     <script src="{{ STATIC_URL }}assets/js/bootstrap-typeahead.js"></script>
 
+    <script type="text/javascript">
+          $('.carousel').carousel({
+                  interval: 5000
+                      })
+    </script>
 
    </body>
  </html>

@@ -4,27 +4,40 @@ Created on 16.06.2012
 
 @author: jskonst
 '''
-import glob
+#import glob
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-import settings
-
+#from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+#import settings
+from news.models import News
 
 def home(request):
-	staticfile = settings.STATIC_ROOT + "info.html"
-	info = open(staticfile)
-	text = info.read()
-	info.close()
-	return render_to_response('test.html', {'content': text}, RequestContext(request))
+
+    news_list = News.objects.order_by('-date')
+    #text = '<br> '.join([n.text for n in news_list])
+    return render_to_response('main_page.html', {'content': news_list}, RequestContext(request))
 
 
+def about(request):
+    return render_to_response('about.html', {'content': '<h5>Раздел находится в оформлении</h5>'}, RequestContext(request))
+
+
+def abiturient(request):
+    return render_to_response('abiturient.html', {'content': '<h5>Раздел находится в оформлении</h5>'}, RequestContext(request))
+
+
+def students(request):
+    return render_to_response('students.html', {'content': '<h5>Раздел находится в оформлении</h5>'}, RequestContext(request))
+
+
+def tutors(request):
+    return render_to_response('tutors.html', {'content': '<h5>Раздел находится в оформлении</h5>'}, RequestContext(request))
 #def agreement(request):
-	#staticfile = settings.STATIC_ROOT + "agreement.html"
-	#info = open(staticfile)
-	#text = info.read()
-	#info.close()
-	#return render_to_response('agreement.html', {'content': text}, RequestContext(request))
+    #staticfile = settings.STATIC_ROOT + "agreement.html"
+    #info = open(staticfile)
+    #text = info.read()
+    #info.close()
+    #return render_to_response('agreement.html', {'content': text}, RequestContext(request))
 
 
 #def contacts(request):
